@@ -1,1 +1,1 @@
-# linux_helpers
+# Various linux helper scripts
