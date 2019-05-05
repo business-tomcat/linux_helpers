@@ -1,0 +1,49 @@
+server:
+  name: 'matrix.fritz.box'
+  port: '8090'
+  publicUrl: 'http://matrix.fritz.box'
+
+dns:
+  overwrite:
+    homeserver:
+      client:
+        - name: 'matrix.fritz.box'
+          value: 'http://localhost:8008'
+
+session:
+  policy:
+    validation:
+      enabled: false
+
+directory:
+  exclude:
+    homeserver: true
+
+matrix:
+  domain: 'matrix.fritz.box'
+
+key:
+  path: '/var/local/mxisd/keys'
+
+storage:
+  provider:
+    sqlite:
+      database: '/var/local/mxisd/store.db'
+
+ldap:
+  enabled: true
+  connection:
+    host: 'ldap.fritz.box'
+    port: 389
+    #bindDn: 'uid=mxisd,ou=People,dc=ldap,dc=fritz,dc=box' # only neccessary if ldap isn't readable without login
+    #bindPassword: 'mxisd'
+    baseDNs:
+      - 'OU=People,DC=ldap,DC=fritz,DC=box'
+  attribute:
+    uid:
+      type: 'uid'
+      value: 'uid'
+    name: 'cn'
+    threepid:
+      email:
+        - 'mail'
