@@ -1,0 +1,28 @@
+server_name: "matrix.fritz.box"
+
+listeners:
+  - port: 8008
+    tls: false
+    bind_addresses: ['::1', '127.0.0.1']
+    type: http
+    x_forwarded: true
+
+    resources:
+      - names: [client, federation]
+        compress: false
+
+enable_registration: false
+
+registration_shared_secret: "<secret>"
+
+trusted_third_party_id_servers:
+  - matrix.fritz.box
+
+password_providers:
+  - module: "rest_auth_provider.RestAuthProvider"
+    config:
+      endpoint: "http://matrix.fritz.box:8090"
+
+user_directory:
+  enabled: true
+  search_all_users: true
