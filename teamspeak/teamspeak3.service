@@ -1,0 +1,17 @@
+[Unit]
+Description=TeamSpeak3 Server
+Wants=network-online.target
+After=syslog.target network.target
+
+[Service]
+WorkingDirectory=/home/teamspeak/bin/teamspeak3-server_linux_amd64
+User=teamspeak
+Group=users
+Type=forking
+ExecStart=/home/teamspeak/bin/teamspeak3-server_linux_amd64/ts3server_startscript.sh start
+ExecStop=/home/teamspeak/bin/teamspeak3-server_linux_amd64/ts3server_startscript.sh stop
+ExecReload=/home/teamspeak/bin/teamspeak3-server_linux_amd64/ts3server_startscript.sh reload
+PIDFile=/home/teamspeak/bin/teamspeak3-server_linux_amd64/ts3server.pid
+
+[Install]
+WantedBy=multi-user.target
