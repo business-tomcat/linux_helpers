@@ -1,0 +1,9 @@
+[TeamSpeak]
+title=TeamSpeak
+description=TeamSpeak
+ports=9987/udp
+
+[TeamSpeak Filetransfer]
+title=TeamSpeak Filetransfer
+description=TeamSpeak Filetransfer
+ports=30033/tcp
